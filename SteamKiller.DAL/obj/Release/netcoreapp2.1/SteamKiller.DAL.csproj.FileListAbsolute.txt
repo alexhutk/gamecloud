@@ -1,0 +1,11 @@
+C:\Users\User\source\repos\steamkiller-master\SteamKiller.DAL\bin\Release\netcoreapp2.1\SteamKiller.DAL.deps.json
+C:\Users\User\source\repos\steamkiller-master\SteamKiller.DAL\bin\Release\netcoreapp2.1\SteamKiller.DAL.runtimeconfig.json
+C:\Users\User\source\repos\steamkiller-master\SteamKiller.DAL\bin\Release\netcoreapp2.1\SteamKiller.DAL.runtimeconfig.dev.json
+C:\Users\User\source\repos\steamkiller-master\SteamKiller.DAL\bin\Release\netcoreapp2.1\SteamKiller.DAL.dll
+C:\Users\User\source\repos\steamkiller-master\SteamKiller.DAL\bin\Release\netcoreapp2.1\SteamKiller.DAL.pdb
+C:\Users\User\source\repos\steamkiller-master\SteamKiller.DAL\obj\Release\netcoreapp2.1\SteamKiller.DAL.csprojAssemblyReference.cache
+C:\Users\User\source\repos\steamkiller-master\SteamKiller.DAL\obj\Release\netcoreapp2.1\SteamKiller.DAL.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\steamkiller-master\SteamKiller.DAL\obj\Release\netcoreapp2.1\SteamKiller.DAL.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\steamkiller-master\SteamKiller.DAL\obj\Release\netcoreapp2.1\SteamKiller.DAL.AssemblyInfo.cs
+C:\Users\User\source\repos\steamkiller-master\SteamKiller.DAL\obj\Release\netcoreapp2.1\SteamKiller.DAL.dll
+C:\Users\User\source\repos\steamkiller-master\SteamKiller.DAL\obj\Release\netcoreapp2.1\SteamKiller.DAL.pdb

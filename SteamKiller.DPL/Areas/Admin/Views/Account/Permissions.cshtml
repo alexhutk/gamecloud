@@ -1,0 +1,27 @@
+﻿@using SteamKiller.BLL.Entities.Enums;
+@{
+    ViewData["Title"] = "Applications";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model SteamKiller.WEB.Areas.Admin.Models.Account.UserAddPermissionViewModel;
+
+<div class="col-md-12 error-text">
+    <h2>User Permissions</h2>
+    <p>Enter user name and available role for him.</p>
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div class="line"></div>
+</div>
+<form method="post" asp-area="Admin" asp-controller="Account" asp-action="Permissions" class="col-md-12 col-lg-7">
+    <div class="form-group">
+        <label for="exampleInputEmail1">User name</label>
+        <input type="text" class="form-control" asp-for="Name" placeholder="Enter user name here">
+        <span asp-validation-for="Name" />
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlFile1">Permission</label>
+        <select class="form-control" asp-for="Perm" asp-items="Html.GetEnumSelectList<Permission>()"></select>
+    </div>
+    <button type="submit" class="form-btn btn btn-primary">Set</button>
+</form>
+

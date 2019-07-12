@@ -1,0 +1,82 @@
+﻿@using SteamKiller.BLL.Infrastructure.Extensions;
+@{
+    ViewData["Title"] = "Applications";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model ApplicationListViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Applications</h2>
+        <p>Create and manage applications on that page.</p>
+        <div class="">
+            <a asp-action="AddApplication" asp-controller="Application" asp-area="Admin" class="btn btn-primary">New App</a>
+        </div>
+        <div class="line"></div>
+    </div>
+</div>
+<div class="row gameContainer">
+    @foreach (var child in Model.EntryList)
+    {
+        <div class="col-md-6 col-lg-4 card-row">
+            <div class="card">
+                @if (child.Image != null)
+                {
+                    <img class="card-img-top" src="data:image/jpeg;base64,@(Convert.ToBase64String(child.Image))" alt="Card image cap">
+                }
+                else
+                {
+                    <img class="card-img-top" src="~/images/default_img.jpg" alt="Card image cap">
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@child.Name (@child.Id)</h5>
+                    <div class="card-managment">
+                        @if (child.IsAdmin)
+                        {
+                            <a asp-area="Admin" asp-controller="Application" asp-action="ManageApplication" asp-route-appId="@child.Id" asp-route-accId="@User.GetAccountId()" class="btn btn-outline-primary">Manage</a>
+                        }
+                        <div class="game-manage">
+                            <a href="#">
+                                <i class="fab fa-steam"></i>
+                            </a>
+                            @if (child.IsAdmin)
+                            {
+                                <a href="#" data-toggle="modal" data-target="#@child.Id">
+                                    <i class="far fa-trash-alt"></i>
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="@child.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Delete this Application?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" asp-area="Admin" asp-controller="Application" asp-action="RemoveApplication">
+                        <div class="modal-body">
+                            <input type="hidden" id="appId" name="appId" value="@child.Id">
+                            <div class="form-group">
+                                <p>@child.Name</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

@@ -1,0 +1,248 @@
+/*Specification*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    background: #fafafa;
+    color:#535353;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.7em;
+    color: #999;
+}
+
+button{
+	outline: none;
+}
+
+button:active, button:focus {
+  outline: none;
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+
+a, a:hover, a:focus {
+	color:inherit;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    background-color: #F7F7F7;
+}
+
+#content{
+	padding: 20px;
+}
+
+.container-fluid{
+	padding: 0;
+}
+
+.btn{
+	min-width: 100px;
+	height: 35px;
+	font-size: 14px
+}
+
+.error-text ul{
+    color: #e05050;
+    font-size: 14px;
+}
+
+form span {
+    color: #e05050;
+    font-size: 12px;
+    line-height:30px;
+}
+
+.hidden-btn {
+    background: transparent;
+    border: none !important;
+    cursor:pointer;
+}
+
+/*First section - header*/
+.header {
+    padding: 7px 0 0 0;
+    position: relative;
+    background-color:white;
+}
+
+.header::after{
+	box-shadow: inset 0px 3px 5px -3px rgba(17, 17, 17, 0.22);
+	content: '';
+	height: 5px;
+	width:100%;
+	position: absolute;
+	z-index: 1;
+}
+
+.headerContainer {
+    padding-bottom: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+	display: flex;
+	flex-direction: row nowrap;
+	align-content: flex-start;
+}
+
+.logo__img{
+	width:120px;
+	height: 40px;
+	margin-left: 40px;
+}
+
+.loginBlock{
+	padding: 2px 65px 0 0;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.loginBlock .btn{
+	margin-right: 13px;
+}
+
+.loginBlock a {
+    margin: 0px 25px 0 0;
+}
+
+.loginBlock img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+
+/*Second section - Content*/
+
+#content{
+	width:100%;
+}
+
+/* Second section - Games*/
+
+.gameContainer{
+	padding-top: 40px;
+}
+
+.gameContainer table {
+    width:80%;
+    margin:0 auto;
+}
+
+.card-row {
+    min-height:300px;
+}
+
+.card {
+    width: 87%;
+    box-shadow: 0px 3px 7px -3px rgba(17, 17, 17, 0.22);
+    font-size: 16px;
+    height: 90%;
+}
+
+.card-body {
+    position:relative;
+}
+
+.card-managment {
+    /*position:absolute;*/
+    bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 83%;
+    margin: 40px 0;
+}
+
+.game-manage{
+	padding: 5px 0px 0 0;
+}
+
+.game-manage a{
+	padding-right: 8px;
+}
+
+.game-manage a:hover{
+	padding-right: 8px;
+	color: #7386D5;;
+}
+
+/*Third Section - Game Managment*/
+.manage-card{
+	margin: 10px auto;
+}
+
+.manage-card h5{
+	display: inline-block;
+	padding-left: 10px;
+}
+
+/*Fourth section - leaderboards*/
+.leaderboard p{
+	margin-bottom: 25px;
+}
+
+.leaderboard-form h4{
+	display: inline-block;
+}
+
+.leaderboard-form > a{
+	display: inline-block;
+	margin-left: 20px;
+}
+
+.leaderboard-form i{
+	font-size: 17px;
+}
+
+.leaderboard-form form{
+	margin-top: 30px;
+}
+
+.leaderboard-form{
+	margin: 20px 0 0 40px;
+}
+
+/*Fifth section - Achievments*/
+.ach-card img{
+	max-width: 30px;
+}
+
+/*Sixth section - Docs*/
+.row-condensed {
+    padding-left:3%;
+}
+
+.row-condensed h6 {
+    color: #5ea4cf;
+    font-size:16px;
+}
+
+.doc-item-content {
+    padding-left:3%;
+}
+
+/*Seventh block - Not Implemented*/
+.not-implemented-block {
+    height: 100vh;
+}
+
+.not-implemented-block__text {
+    margin-top: 30vh;
+    text-align:center;
+}

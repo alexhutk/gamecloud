@@ -1,0 +1,50 @@
+﻿@using SteamKiller.BLL.Infrastructure.Extensions;
+@{
+    ViewData["Title"] = "Applications";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model SteamKiller.WEB.Areas.Admin.Models.Leaderboard.LeaderboardAddViewModel
+
+<div class="row">
+    <div class="col-md-12 leaderboard error-text">
+        <h2>Leaderboard</h2>
+        <p>Create and manage leaderboard on that page.</p>
+        <div>
+        </div>
+        <hr />
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+    </div>
+</div>
+<div class="leaderboard-form">
+    @if (Model.Name != null)
+    {
+        <h4>@Model.Name (@Model.Id)</h4>
+        <form method="post" asp-area="Admin" asp-controller="Leaderboard" asp-action="DeleteLeaderboard" asp-route-accId="@User.GetAccountId()" asp-route-appId="@Model.AppId" class="col-md-12 col-lg-7 inline-form">
+            <input asp-for="Id" type="hidden" value="@Model.Id">
+            <input asp-for="Name" type="hidden" value="@Model.Name">
+            <button type="submit" class="hidden-btn"><i class="far fa-trash-alt"></i></button>
+        </form>
+    }
+    else
+    {
+        <h4>Create new leaderboard</h4>
+    }
+    <form method="post" asp-area="Admin" asp-controller="Leaderboard" asp-action="AddLeadboard" asp-route-accId="@User.GetAccountId()" asp-route-appId="@Model.AppId" class="col-md-12 col-lg-7">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Leaderboard name</label>
+            @if (Model.Name != null)
+            {
+                <input asp-for="Id" type="hidden" value="@Model.Id">
+                <input asp-for="Name" type="text" class="form-control" value="@Model.Name">
+            }
+            else
+            {
+                <input asp-for="Name" type="text" class="form-control" placeholder="Enter leaderboard name">
+            }
+            <span asp-validation-for="Name" />
+        </div>
+        <button type="submit" class="form-btn btn btn-primary">Submit</button>
+    </form>
+</div>
+

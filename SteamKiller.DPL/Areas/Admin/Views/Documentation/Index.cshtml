@@ -1,0 +1,370 @@
+﻿
+@{
+    ViewData["Title"] = "Documentation";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="bd-title">API Docs</h1>
+<br/>
+
+<h2 id="quick-start">Quick start</h2>
+
+<p>Here is API documentation to access application, user, analytic and finance functionality. </p>
+<p>All API calls start with:  <code class="highlighter-rouge">api/v1/</code></p>
+<p>Some API calls must be authorized. To learn how to make authorized calls watch Account API section.</p>
+
+<div class="doc-item">
+    <h3>Application API</h3>
+
+    <p>To access user's applications use: <code class="highlighter-rouge">api/v1/applications</code> in your query.</p>
+    <div class="row-condensed">
+        <h5>GetAllApplications()</h5>
+        <div class="doc-item-content">
+            <p>Returns all registered applications in system. Can be accessed by root administrators of system. Use <code class="highlighter-rouge">api/v1/applications</code> to call that function</p>
+            <h6>Method</h6>
+            <p>GET</p>
+            <h6>Arguments</h6>
+            <p>None</p>
+        </div>
+    </div>
+    <div class="row-condensed">
+        <h5>GetApplication()</h5>
+        <div class="doc-item-content">
+            <p>Returns registered applications in system by id. Can be accessed by everyone. Use <code class="highlighter-rouge">api/v1/applications/{appId}</code> to call that function</p>
+            <h6>Method</h6>
+            <p>GET</p>
+            <h6>Arguments</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>appId</td>
+                        <td>Int</td>
+                        <td>Application Id</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row-condensed">
+        <h5>GetByApplication()</h5>
+        <div class="doc-item-content">
+            <p>Returns registered users of application. Can be accessed by everyone. Use <code class="highlighter-rouge">api/v1/applications/{appId}/users</code> to call that function</p>
+            <h6>Method</h6>
+            <p>GET</p>
+            <h6>Arguments</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>appId</td>
+                        <td>Int</td>
+                        <td>Application Id</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row-condensed">
+        <h5>AddApplication()</h5>
+        <div class="doc-item-content">
+            <p>Adds new application to system. Can be accessed by everyone. Use <code class="highlighter-rouge">api/v1/applications/</code> to call that function</p>
+            <h6>Method</h6>
+            <p>PUT</p>
+            <h6>Arguments</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>name</td>
+                        <td>String</td>
+                        <td>Application name</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row-condensed">
+        <h5>UpdateApplication()</h5>
+        <div class="doc-item-content">
+            <p>Updates application in system. Can be accessed by authorized admins of application. Use <code class="highlighter-rouge">api/v1/applications/{appId}</code> to call that function</p>
+            <h6>Method</h6>
+            <p>PUT</p>
+            <h6>Arguments</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>appId</td>
+                        <td>Int</td>
+                        <td>Application Id</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>String</td>
+                        <td>Application name</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row-condensed">
+        <h5>RemoveApplication()</h5>
+        <div class="doc-item-content">
+            <p>Adds new application to system. Can be accessed by everyone. Use <code class="highlighter-rouge">api/v1/applications/{appId}</code> to call that function</p>
+            <h6>Method</h6>
+            <p>DELETE</p>
+            <h6>Arguments</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>appId</td>
+                        <td>Int</td>
+                        <td>Application Id</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>String</td>
+                        <td>Application name</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="doc-item">
+    <h3>Achievment API</h3>
+
+    <p>To access application achievment use: <code class="highlighter-rouge">api/v1/applications/{appId}/achievments</code> in your query.</p>
+    <div class="row-condensed">
+        <h5>GetAchievmentSummary()</h5>
+        <div class="doc-item-content">
+            <p>Returns achievment summary by id and application. Can be accessed by everyone. Use <code class="highlighter-rouge">api/v1/applications/{appId}/achievments/{achId}</code> to call that function</p>
+            <h6>Method</h6>
+            <p>GET</p>
+            <h6>Arguments</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>achId</td>
+                        <td>Int</td>
+                        <td>Achievment Id</td>
+                    </tr>
+                <td>appId</td>
+                <td>Int</td>
+                <td>Application Id</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row-condensed">
+        <h5>GetApplicationAchievments()</h5>
+        <div class="doc-item-content">
+            <p>Returns application achievments. Can be accessed by everyone. Use <code class="highlighter-rouge">api/v1/applications/{appId}/achievments</code> to call that function</p>
+            <h6>Method</h6>
+            <p>GET</p>
+            <h6>Arguments</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>appId</td>
+                        <td>Int</td>
+                        <td>Application Id</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row-condensed">
+        <h5>AddNewAchievment()</h5>
+        <div class="doc-item-content">
+            <p>Add new application achievment. Can be accessed by authorized admins of application. Use <code class="highlighter-rouge">api/v1/applications/{appId}/achievments</code> to call that function</p>
+            <h6>Method</h6>
+            <p>PUT</p>
+            <h6>Arguments</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>appId</td>
+                        <td>Int</td>
+                        <td>Application Id</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>String</td>
+                        <td>Achievment name</td>
+                    </tr>
+                    <tr>
+                        <td>description</td>
+                        <td>String</td>
+                        <td>Achievment description</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row-condensed">
+        <h5>UpdateAchievment()</h5>
+        <div class="doc-item-content">
+            <p>Update application achievment. Can be accessed by authorized admins of application. Use <code class="highlighter-rouge">api/v1/applications/{appId}/achievments/{id}</code> to call that function</p>
+            <h6>Method</h6>
+            <p>PUT</p>
+            <h6>Arguments</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>appId</td>
+                        <td>Int</td>
+                        <td>Application Id</td>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>Int</td>
+                        <td>Achievment Id</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>String</td>
+                        <td>Achievment name</td>
+                    </tr>
+                    <tr>
+                        <td>description</td>
+                        <td>String</td>
+                        <td>Achievment description</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row-condensed">
+        <h5>DeleteAchievment()</h5>
+        <div class="doc-item-content">
+            <p>Removes application achievment. Can be accessed by authorized admins of applicaiton. Use <code class="highlighter-rouge">api/v1/applications/{appId}/achievments/{id}</code> to call that function</p>
+            <h6>Method</h6>
+            <p>DELETE</p>
+            <h6>Arguments</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>appId</td>
+                        <td>Int</td>
+                        <td>Application Id</td>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>Int</td>
+                        <td>Achievment Id</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row-condensed">
+        <h5>SetAchievment()</h5>
+        <div class="doc-item-content">
+            <p>Use it to set (unset) application achievment. Can be accessed by authorized users of applicaiton. Use <code class="highlighter-rouge">/api/v1/users/{accId}/applications/{appId}/saves/{achId}</code> to call that function</p>
+            <h6>Method</h6>
+            <p>PUT</p>
+            <h6>Arguments</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>appId</td>
+                        <td>Int</td>
+                        <td>Application Id</td>
+                    </tr>
+                    <tr>
+                        <td>achId</td>
+                        <td>Int</td>
+                        <td>Achievment Id</td>
+                    </tr>
+                    <tr>
+                        <td>accId</td>
+                        <td>Int</td>
+                        <td>Account Id to grant achievment</td>
+                    </tr>
+                    <tr>
+                        <td>reached</td>
+                        <td>Bool</td>
+                        <td>Set/unset achievment to user</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

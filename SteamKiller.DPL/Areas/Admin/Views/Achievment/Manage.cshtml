@@ -1,0 +1,77 @@
+﻿@using SteamKiller.WEB.Models;
+@{
+    ViewData["Title"] = "Applications";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model SteamKiller.WEB.Models.AchievmentCollectionViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>@Model.Name (@Model.AppId)</h2>
+        <p>Manage your achievments on that page.</p>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Create new
+        </button>
+    </div>
+</div>
+<div class="row gameContainer">
+    @foreach (var child in Model.Entries)
+    {
+        var childName = ((AchievmentEntryViewModel)child).Name;
+        var childDescription = ((AchievmentEntryViewModel)child).Description;
+        <div class="card manage-card ach-card">
+            <div class="card-body">
+                @if (((AchievmentEntryViewModel)child).ImageData != null)
+                {
+                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(((AchievmentEntryViewModel)child).ImageData))">
+                }
+                else
+                {
+                    <img src="~/images/default_img.jpg" />
+                }
+                <h5 class="card-title">@childName (@child.Id)</h5>
+                <p class="card-text">@childDescription</p>
+                <form method="post" asp-area="Admin" asp-controller="Achievment" asp-action="DeleteAchievment" asp-route-id="@child.Id" asp-route-appId="@Model.AppId" asp-route-appName="@Model.Name">
+                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    }
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create new achievment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" asp-area="Admin" asp-controller="Achievment" asp-action="Manage" enctype="multipart/form-data">
+                <input type="hidden" id="AppId" name="AppId" value="@Model.AppId">
+                <input type="hidden" id="AppName" name="AppName" value="@Model.Name">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter ach name here">
+                        <span asp-validation-for="Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Description</label>
+                        <textarea class="form-control" id="Description" name="Description" aria-label="With textarea" placeholder="Enter ach descr here"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Achievment image</label>
+                        <input type="file" class="form-control-file" id="Image" name="Image">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="form-btn btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

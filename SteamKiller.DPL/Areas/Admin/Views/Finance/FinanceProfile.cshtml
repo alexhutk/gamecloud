@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "FinanceProfile";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model SteamKiller.WEB.Areas.Admin.Models.Finance.FinanceProfileViewModel
+
+<div class="col-md-12 error-text">
+    <h2>Finance Profile</h2>
+    <p>Edit your finance profile info on that page.</p>
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <hr/>
+</div>
+<form method="post" asp-area="Admin" asp-controller="Finance" asp-action="FinanceProfile" class="col-md-12 col-lg-7">
+    <input type="hidden" asp-for="Id">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Your physical address</label>
+        <input type="text" class="form-control" asp-for="Address" placeholder="Enter your address here">
+        <span asp-validation-for="Address" />
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Your bank name</label>
+        <input type="text" class="form-control" asp-for="BankName" placeholder="Enter your bank name here">
+        <span asp-validation-for="BankName" />
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Your IBAN code</label>
+        <input type="text" class="form-control" asp-for="IbanNumber" placeholder="Enter your IBAN code here">
+        <span asp-validation-for="IbanNumber" />
+    </div>
+    <button type="submit" class="form-btn btn btn-primary">Confirm</button>
+</form>
+

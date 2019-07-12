@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Applications";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model SteamKiller.WEB.Areas.Admin.Models.Application.ApplicationAddViewModel
+
+<div class="col-md-12 error-text">
+    <h2>New Application</h2>
+    <p>Create new app on that page.</p>
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div class="line"></div>
+</div>
+<form method="post" asp-area="Admin" asp-controller="Application" asp-action="AddApplication" enctype="multipart/form-data" class="col-md-12 col-lg-7">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Application name</label>
+        <input type="text" class="form-control" asp-for="Name" placeholder="Enter app name here">
+        <span asp-validation-for="Name" />
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlFile1">Application banner</label>
+        <input type="file" class="form-control-file" asp-for="Image">
+    </div>
+    <button type="submit" class="form-btn btn btn-primary">Create</button>
+</form>
+

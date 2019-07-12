@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SteamKiller.DAL.Entities.Complex
+{
+    public class ApplicationComplex
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public byte[] ImageData { get; set; }
+        public string ImageMimeType { get; set; }
+        public bool IsAdmin { get; set; }
+    }
+}

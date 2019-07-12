@@ -1,0 +1,71 @@
+@media screen and (max-width: 900px) {
+    .loginBlock {
+        padding-right: 5px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+
+    #content nav span
+    {
+    	display: none;
+    }
+
+    #sidebarCollapse{
+        margin-left: 15px;
+        font-size: 20px;
+        padding-top: 4px;
+        display: block;
+    }
+
+    #sidebar ul li a span {
+        position: relative;
+        left: 1%;
+        text-overflow: ellipsis;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .loginBlock{
+        padding-right: 5px;
+    }
+
+    .logo__img{
+        margin-left: 0px;
+    }
+
+    .card-row {
+        min-height: 460px;
+    }
+
+    .search-form {
+        display: none;
+    }
+
+    .left-menu i {
+        text-align:center !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .loginBlock{
+        display: none;
+    }
+
+    .card-row {
+        min-height: 320px;
+    }
+
+    .card-managment {
+        width: 100%;
+    }
+}

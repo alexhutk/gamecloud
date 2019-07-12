@@ -1,0 +1,45 @@
+﻿@using SteamKiller.BLL.Infrastructure.Extensions;
+@{
+    ViewData["Title"] = "Applications";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model SteamKiller.DPL.Models.AccountCollectionViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>User List</h2>
+        <p>Manage your application users on that page.</p>
+        <a asp-area="Admin" asp-controller="Account" asp-action="Permissions" asp-route-appId="@Model.AppId" asp-route-accId="@User.GetAccountId()" class="btn btn-primary">Add</a>
+        <hr />
+    </div>
+</div>
+<div class="row gameContainer">
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var child in Model.EntryList)
+            {
+                <tr>
+                    <td>@child.Id</td>
+                    <td>@child.Name</td>
+                    @if (child.IsAdmin)
+                    {
+                        <td>Admin</td>
+                    }
+                    else
+                    {
+                        <td>User</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

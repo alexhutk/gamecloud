@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Этот файл используется процессом публикации или упаковки вашего веб-проекта. Можно настроить поведение этого процесса,
+изменив этот файл MSBuild. Подробности см. на странице https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAd8xdNkg/NUGcBSWJqlhF2AAAAAACAAAAAAAQZgAAAAEAACAAAADURgGTsvJNculvnDmy0MsszjO7+JnZf5jLCCDkEdNd8AAAAAAOgAAAAAIAACAAAABVDWcEIT8if+sgkknlip04KtVRY3+082KuI5s2WOgHc4AAAAAhoaScqCJPubz0N7lhDelyeAZGLn8N1O15wZ3De90SIM2vYpvJplupaX48Ztb+pm3MYq4DwPW8U9DyXxtF0t3lKMPYXOrGG16H2qJvTx+0J8mX1M81JUDqqrZAJ5q3GLn1glPMtJeQLCqb6bX1HxfPlyJs8M7RSSpt8MP/adn8iUAAAADk6H+kNxSSS+M+870BmvlYF6BhMYY46AdkASdlJXOv5DmIFJ35JS4f6aY6H5AQwGLYJfGGAeJXnvDo7KgtRDe2</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=den1.mssql8.gear.host%3bDatabase=gamecenterdb%3bUid=gamecenterdb%3bPwd=Wz6w491!Xv%3fi%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

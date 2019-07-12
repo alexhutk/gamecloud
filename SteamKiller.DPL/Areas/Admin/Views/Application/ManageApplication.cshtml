@@ -1,0 +1,95 @@
+﻿@using SteamKiller.BLL.Infrastructure.Extensions;
+@{
+    ViewData["Title"] = "Applications";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model SteamKiller.DPL.Models.ApplicationEntryViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>@Model.Name (@Model.Id)</h2>
+        <p>Manage your application on that page.</p>
+        <a href="#" class="btn btn-outline-primary" data-toggle="modal" data-target="#@Model.Id">Edit</a>
+        <div class="line"></div>
+    </div>
+</div>
+<div class="row gameContainer">
+    <div class="card manage-card">
+        <div class="card-body">
+            <i class="fas fa-user"></i>
+            <h5 class="card-title">User Managment</h5>
+            <p class="card-text">Give permissions to users to access game managment features.</p>
+            <a asp-area="Admin" asp-controller="Account" asp-action="Users" asp-route-appId="@Model.Id" asp-route-accId="@User.GetAccountId()" class="btn btn-primary">Manage</a>
+        </div>
+    </div>
+    <div class="card manage-card">
+        <div class="card-body">
+            <i class="fas fa-trophy"></i>
+            <h5 class="card-title">Leaderboard</h5>
+            <p class="card-text">Manage Leaderboard on that page.</p>
+            <a asp-area="Admin" asp-controller="Leaderboard" asp-action="GetApplicationLeaderboard" asp-route-appId="@Model.Id" asp-route-accId="@User.GetAccountId()" class="btn btn-primary">Manage</a>
+        </div>
+    </div>
+    <div class="card manage-card">
+        <div class="card-body">
+            <i class="fas fa-medal"></i>
+            <h5 class="card-title">Achievments</h5>
+            <p class="card-text">Create and delete achievments on that page.</p>
+            <a asp-area="Admin" asp-controller="Achievment" asp-action="Manage" asp-route-appId="@Model.Id" asp-route-accId="@User.GetAccountId()" asp-route-appName="@Model.Name" class="btn btn-primary">Manage</a>
+        </div>
+    </div>
+    <div class="card manage-card">
+        <div class="card-body">
+            <i class="fas fa-chart-line"></i>
+            <h5 class="card-title">Analytics</h5>
+            <p class="card-text">Watch and manage the stats of your application on that page.</p>
+            <a asp-area="Admin" asp-controller="Analytics" asp-action="AnalyticsMainPaige" class="btn btn-primary">Manage</a>
+        </div>
+    </div>
+    <div class="card manage-card">
+        <div class="card-body">
+            <i class="fas fa-piggy-bank"></i>
+            <h5 class="card-title">In App Purchases</h5>
+            <p class="card-text">Manage IAP in your application here.</p>
+            <a asp-area="Admin" asp-controller="IAP" asp-action="IapMainPaige" class="btn btn-primary">Manage</a>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="@Model.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Edit the Application</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" asp-area="Admin" asp-controller="Application" asp-action="UpdateApplication" asp-route-appId="@Model.Id" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <input type="hidden" id="Id" name="Id" value="@Model.Id">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Application name</label>
+                        <input type="text" class="form-control" asp-for="Name" placeholder="@Model.Name">
+                        <span asp-validation-for="Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Application banner</label>
+                        <input type="file" class="form-control-file" asp-for="Image">
+                        @if (Model.Image != null)
+                        {
+                            <img class="modal__img" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Image))" alt="Card image cap">
+                        }
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
