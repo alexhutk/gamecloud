@@ -1,27 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SteamKiller.DAL.EntitiesFramefork;
-using SteamKiller.DAL.Interfaces;
-using SteamKiller.DAL.Repositories;
-using Microsoft.EntityFrameworkCore;
-using SteamKiller.DAL.Migrations;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using SteamKiller.DPL.Identity.JWT;
 using SteamKiller.BLL.Infrastructure.DI;
+using SteamKiller.DAL.EntitiesFramefork;
 using SteamKiller.DAL.Infrastructure.DI;
+using SteamKiller.DPL.Identity.JWT;
 using SteamKiller.WEB.Infrastructure.Filters;
-using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace SteamKiller.DPL
 {
